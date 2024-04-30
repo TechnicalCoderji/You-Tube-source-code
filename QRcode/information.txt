@@ -1,0 +1,7 @@
+1.first download and install python.
+
+2.in command prompt(cmd) using this command install qrcode package.
+
+3. "pip install qrcode" (make sure your internet conaction is on while run this command.
+
+4.now you make qrcode from following code.
