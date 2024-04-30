@@ -1,0 +1,4 @@
+1. download and install python.
+2. run this command in cmd to install pyautogui module
+3. "pip install pyautogui"
+4. Now you write and run following code
