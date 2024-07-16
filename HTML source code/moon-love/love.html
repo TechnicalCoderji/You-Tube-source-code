@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Moon 🌙</title>
+        <style>
+                body {
+                        background-color: #000000;
+                        color: #fff;
+                }
+
+                #image-container {
+                        text-align: center;
+                        position: relative;
+                }
+
+                #display-image {
+                        max-width: 100%;
+                        height: auto;
+                        margin-top: 50px;
+                        border-radius: 70%;
+                        overflow: hidden;
+                        position: relative;
+                }
+
+                #reflection {
+                        display: none;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background: radial-gradient(circle at 50% 50%, transparent 15%, rgba(61, 113, 243, 0.852) 40%, rgba(128, 0, 64, 0.2) 60%, rgba(128, 0, 64, 0) 80%);
+                        animation: shining 2s infinite;
+                        border-radius: 50% / 70% 70% 0 0;
+                }
+
+                @keyframes shining {
+                        0% {
+                                transform: scale(1);
+                        }
+
+                        50% {
+                                transform: scale(1.3);
+                        }
+
+                        100% {
+                                transform: scale(1);
+                        }
+                }
+
+                #dropdown {
+                        display: block;
+                        margin: 20px auto;
+                        font-size: 16px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 1px solid #ccc;
+                        background-color: #fff;
+                        color: #000;
+                }
+
+                #play-button {
+                        display: block;
+                        margin: 20px auto;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        border: none;
+                        background-color: #007bff;
+                        color: #fff;
+                        cursor: pointer;
+                }
+        </style>
+</head>
+
+<body>
+        <div id="image-container">
+                <div id="reflection"></div>
+                <img id="display-image" width="256" src="images/A.png" alt="Displayed Image">
+        </div>
+        <select id="dropdown" onchange="displayImage()">
+                <option value="A">144p</option>
+                <option value="B">240p</option>
+                <option value="C">360p</option>
+                <option value="D">480p</option>
+                <option value="E">720p</option>
+                <option value="F">1080p</option>
+        </select>
+        <script>
+                var audio = document.getElementById("background-audio");
+                var isAudioPlaying = false;
+                function toggleAudio() {
+                        if (isAudioPlaying) {
+                                audio.pause();
+                                isAudioPlaying = false;
+                                document.getElementById("play-button").textContent = "Play Audio";
+                        } else {
+                                audio.play();
+                                isAudioPlaying = true;
+                                document.getElementById("play-button").textContent = "Pause Audio";
+                        }
+                }
+                function displayImage() {
+                        var selectedOption = document.getElementById("dropdown").value;
+                        var image = document.getElementById("display-image");
+                        var reflection = document.getElementById("reflection");
+                        switch (selectedOption) {
+                                case "A":
+                                        image.src = "images/A.png";
+                                        reflection.style.display = "none";
+                                        break;
+                                case "B":
+                                        image.src = "images/B.png";
+                                        reflection.style.display = "none";
+                                        break;
+                                case "C":
+                                        image.src = "images/C.png";
+                                        reflection.style.display = "none";
+                                        break;
+                                case "D":
+                                        image.src = "images/D.png";
+                                        reflection.style.display = "none";
+                                        break;
+                                case "E":
+                                        image.src = "images/E.png";
+                                        reflection.style.display = "none";
+                                        break;
+                                case "F":
+                                        image.src = "images/F.gif";
+                                        reflection.style.display = "block";
+                                        break;
+                                default:
+                                        image.src = "";
+                                        reflection.style.display = "none";
+                                        break;
+                        }
+                        if (!isAudioPlaying) {
+                                toggleAudio();
+                        }
+                }
+        </script>
+
+</body>
+</html>
